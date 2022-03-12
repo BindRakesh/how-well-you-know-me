@@ -1,9 +1,10 @@
 var readlineSync = require("readline-sync");
+var chalk = require('chalk');
 
 var score = 0;
 
 function play(question, answer) {
-  var userAns = readlineSync.question(question);
+  var userAns = readlineSync.question(chalk.yellow(question));
   if (userAns === answer) {
     console.log("You are rigth");
     score = score + 1;
@@ -29,7 +30,7 @@ var questions = [
   },
 ];
 
-console.log("Welcome to shor game:: HoW WeLL Do YoU KnoW ME?");
+console.log(chalk.green("Welcome to shor game:: HoW WeLL Do YoU KnoW ME?"));
 for (let i = 0; i < questions.length; i++) {
   play(questions[i].question, questions[i].answer);
 }
